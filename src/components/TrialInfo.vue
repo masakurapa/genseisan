@@ -18,7 +18,7 @@ export default {
   name: 'TrialInfo',
   data () {
     return {
-      trial: 100000,
+      trial: 1000,
       members: '',
 
       /**
@@ -42,18 +42,22 @@ export default {
         const tmpMembers = Object.assign([], memList)
         let count = tmpMembers.length
 
-        while (tmpMembers.length > 0) {
-          const index = Math.floor(Math.random() * count)
-          const payload = {index: tmpMembers[index].index}
-          this.$store.commit('addScore', payload)
+        setInterval(() => {
+          if (tmpMembers.length > 0) {
+            const index = Math.floor(Math.random() * count)
+            const payload = {index: tmpMembers[index].index}
+            this.$store.commit('addScore', payload)
 
-          // スコアが試行回数に到達
-          if (this.$store.state.members[tmpMembers[index].index].score === this.trial) {
-            this.$store.commit('setRanking', payload)
-            tmpMembers.splice(index, 1)
-            count--
+            // スコアが試行回数に到達
+            if (this.$store.state.members[tmpMembers[index].index].score === this.trial) {
+              this.$store.commit('setRanking', payload)
+              tmpMembers.splice(index, 1)
+              count--
+            }
+          } else {
+            return false
           }
-        }
+        }, 1)
       },
 
       /**
