@@ -1,9 +1,0 @@
-
-export default {
-  hoge () {
-
-  },
-  moge () {
-
-  }
-}
