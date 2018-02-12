@@ -1,20 +1,21 @@
 <template>
-  <div v-if="this.$store.state.members.length > 0">
-    <div v-for="(member, index) in this.$store.state.members" v-bind:key="index">
-      ランキング: {{member.rank }} 名前: {{ member.name }} スコア: {{ member.score}}
+  <div v-if="is_ranking">
+    <div v-for="(member, index) in ranking" v-bind:key="index">
+      {{ member.name }}
     </div>
+    <div>{{ guruguru }}</div>
   </div>
   <div v-else>
-    no members
+    <div>{{ guruguru }}</div>
   </div>
 </template>
 
 <script>
+import { mapGetters } from 'vuex'
+
 export default {
-  name: 'TrialResult',
-  data () {
-    return {
-    }
+  computed: {
+    ...mapGetters(['is_ranking', 'ranking', 'guruguru'])
   }
 }
 </script>

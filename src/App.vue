@@ -1,21 +1,20 @@
 <template>
   <div id="app">
     <h1>厳正な抽選さん</h1>
-    <TrialInfo/>
+    <trial-form></trial-form>
 
     <h2>厳正な抽選結果</h2>
-    <TrialResult/>
+    <trial-result></trial-result>
   </div>
 </template>
 
 <script>
-import TrialInfo from './components/TrialInfo'
+import TrialForm from './components/TrialForm'
 import TrialResult from './components/TrialResult'
 
 export default {
-  name: 'App',
   components: {
-    TrialInfo,
+    TrialForm,
     TrialResult
   }
 }

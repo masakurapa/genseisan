@@ -1,0 +1,4 @@
+export const CHANGE_TRIAL = 'CHANGE_TRIAL'
+export const CHANGE_MEMBERS = 'CHANGE_MEMBERS'
+export const START_TRIAL = 'START_TRIAL'
+export const FORM_RESET = 'FORM_RESET'
