@@ -44,6 +44,10 @@ li {
   word-wrap: break-word;
 }
 
+.result-group li {
+  border-bottom: dotted 2px #cecccd;
+}
+
 .result-group li:nth-child(1) {
   background-image: url('../assets/img/crown1.png');
 }
