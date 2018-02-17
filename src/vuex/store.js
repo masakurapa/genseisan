@@ -3,7 +3,7 @@ import Vuex from 'vuex'
 import {
   CHANGE_TRIAL, CHANGE_MEMBERS, CHANGE_NUMBER, START_TRIAL, FORM_RESET
 } from './mutation-types'
-import trialInfo from './trialInfo'
+import mutations from './mutations'
 
 Vue.use(Vuex)
 
@@ -77,75 +77,6 @@ const getters = {
       return []
     }
     return state.history
-  }
-}
-
-const mutations = {
-  [CHANGE_TRIAL] (state, trial) {
-    state.trial.error = ''
-    state.trial.value = trial
-
-    if (!/^[0-9]+$/.test(trial)) {
-      state.trial.error = '数字だけを入れて'
-      return false
-    }
-
-    state.trial.value = parseInt(trial)
-    if (state.trial.value < 1 || state.trial.value > 1000000) {
-      state.trial.error = '1〜1000000を入れて'
-    }
-  },
-  [CHANGE_MEMBERS] (state, members) {
-    state.members.error = ''
-    state.members.value = members.trim()
-
-    if (state.members.value === '') {
-      state.members.error = '入れて'
-    } else {
-      // numberの上限を変える
-      const split = state.members.value.split('\n').filter(v => v.trim())
-      state.number.max = split.length
-
-      if (split.length > 15) {
-        state.members.error = '15行以上はやめて'
-      }
-    }
-  },
-  [CHANGE_NUMBER] (state, number) {
-    state.number.error = ''
-    state.number.value = number
-
-    if (!/^[0-9]+$/.test(number)) {
-      state.number.error = '数字だけを入れて'
-      return false
-    }
-
-    state.number.value = parseInt(number)
-    if (state.number.value < 1 || state.number.value > state.number.max) {
-      state.number.error = `1〜${state.number.max}を入れて`
-    }
-  },
-  [START_TRIAL] (state) {
-    state.isRunTrial = true
-
-    const splitMembers = state.members.value.split('\n').filter(v => v.trim())
-    state.ranking = []
-
-    // ぐるぐるさせる
-    state.interval = trialInfo.shuffle(state, splitMembers)
-
-    // ランキングをつける
-    trialInfo.createRanking(state.trial.value, splitMembers, state.number.value, (ranking) => {
-      // 結果表示
-      trialInfo.timeout(state, splitMembers, ranking, 0, 1000)
-    })
-  },
-  [FORM_RESET] (state) {
-    state.trial = {value: 100000, error: ''}
-    state.members = {value: '', error: ''}
-    state.number = {value: 1, max: 1, error: ''}
-    state.shuffle = ''
-    state.ranking = []
   }
 }
 
