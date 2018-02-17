@@ -1,6 +1,7 @@
-# gensei-san
+# 厳正な抽選さん
 
-> 厳正な抽選ツール
+- [GitHub.io](https://masakurapa.github.io/genseisan/) で公開
+- 現状モバイル向けの作りにはなってない
 
 ## Build Setup
 
