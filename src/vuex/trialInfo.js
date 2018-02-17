@@ -33,7 +33,7 @@ export default {
   /**
    * 抽選開始
    */
-  createRanking: (trial, members, callback) => {
+  createRanking: (trial, members, number, callback) => {
     // 集計用のオブジェクト
     const obj = {
       index: null,
@@ -60,6 +60,11 @@ export default {
       // スコアが試行回数に到達
       if (memList[index].score === trial) {
         ranking.push(memList[index])
+        // ここで抽選人数に達したら終わる
+        if (ranking.length === number) {
+          break
+        }
+
         memList.splice(index, 1)
         count--
       }
