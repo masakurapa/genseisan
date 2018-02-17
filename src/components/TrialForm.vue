@@ -1,14 +1,14 @@
 <template>
-  <div>
-    <div>
-      試行回数： <input type="text" @change="CHANGE_TRIAL($event.target.value)" :value="trial">
+  <div class="trial-form">
+    <div class="input-group">
+      <label>試行回数</label>
+      <input type="text" @keyup="CHANGE_TRIAL($event.target.value)" :value="trial.value">
+      <p class="error">{{ trial.error }}</p>
     </div>
-    <div>
-      試行対象： <textarea @change="CHANGE_MEMBERS($event.target.value)" :value="members" rows="10" cols="50"></textarea>
-    </div>
-    <div>
-      <button @click="START_TRIAL">抽選スタート！！</button>
-      <button @click="FORM_RESET">リセット</button>
+    <div class="input-group">
+      <label>試行対象</label>
+      <textarea @keyup="CHANGE_MEMBERS($event.target.value)" :value="members.value" rows="10" cols="50"></textarea>
+      <p class="error">{{ members.error }}</p>
     </div>
   </div>
 </template>
@@ -16,7 +16,7 @@
 <script>
 import { mapActions, mapGetters } from 'vuex'
 import {
-  CHANGE_TRIAL, CHANGE_MEMBERS, START_TRIAL, FORM_RESET
+  CHANGE_TRIAL, CHANGE_MEMBERS
 } from '../vuex/mutation-types'
 
 export default {
@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     ...mapActions([
-      CHANGE_TRIAL, CHANGE_MEMBERS, START_TRIAL, FORM_RESET
+      CHANGE_TRIAL, CHANGE_MEMBERS
     ])
   }
 }
@@ -33,4 +33,47 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped>
+.trial-form {
+  font-weight: bold;
+}
+
+.error {
+  color: #dc143c;
+  margin: 0px 0px 0px 85px;
+}
+
+.input-group {
+  text-align: left;
+  margin: 0px 0px 10px 80px;
+}
+
+.input-group label {
+  margin: 0px 15px 0px 0px;
+  vertical-align: top;
+}
+
+input {
+  border: 2px solid #668ad8;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #000000;
+  font-size: 13px;
+  padding: 10px;
+  height: 35px;
+  width: 180px;
+}
+
+textarea {
+  border: 2px solid #668ad8;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  color: #000000;
+  font-size: 13px;
+  padding: 10px;
+  height: 200px;
+  width: 180px;
+  resize: none;
+}
 </style>

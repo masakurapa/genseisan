@@ -1,19 +1,31 @@
 <template>
-  <div id="app">
-    <h1>厳正な抽選さん</h1>
-    <trial-form></trial-form>
+  <div>
+    <h1><img class="title-img" src="./assets/img/title.png"></h1>
 
-    <h2>厳正な抽選結果</h2>
-    <trial-result></trial-result>
+    <div class="wrapper">
+      <div class="form-area">
+        <h2><img class="sub-title-img" src="./assets/img/data.png"></h2>
+        <trial-form></trial-form>
+      </div>
+
+      <div class="button-area"><trial-button></trial-button></div>
+
+      <div class="result-area">
+        <h2><img class="sub-title-img" src="./assets/img/result.png"></h2>
+        <trial-result></trial-result>
+      </div>
+    </div>
   </div>
 </template>
 
 <script>
+import TrialButton from './components/TrialButton'
 import TrialForm from './components/TrialForm'
 import TrialResult from './components/TrialResult'
 
 export default {
   components: {
+    TrialButton,
     TrialForm,
     TrialResult
   }
@@ -21,12 +33,45 @@ export default {
 </script>
 
 <style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+body {
+  background: #F5FFFA;
+  text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  font-family: 'Hannotate SC','Chalkboard SE','ＭＳ 明朝', 'MS Mincho',sans-serif;
+}
+
+.wrapper {
+  width: 1000px;
+  margin: 0 auto;
+}
+
+.form-area {
+  width: 400px;
+  float: left;
+  margin: 0px 0px 0px 0px
+}
+
+.button-area {
+  width: 150px;
+  float: left;
+  margin: 80px 0px 0px 0px
+}
+
+.result-area {
+  width: 450px;
+  float: left;
+  margin: 0px 0px 0px 0px
+}
+
+.title-img {
+  width: auto;
+  height: 60px;
+}
+
+.sub-title-img {
+  width: auto;
+  height: 40px;
 }
 </style>

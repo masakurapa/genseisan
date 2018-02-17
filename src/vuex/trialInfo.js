@@ -3,11 +3,11 @@ export default {
   /**
    * ぐるぐる
    */
-  guruguru: (state, list) => {
+  shuffle: (state, list) => {
     let i = 0
     const count = list.length
     return setInterval(() => {
-      state.guruguru = list[i]
+      state.shuffle = list[i]
       i = (i === count - 1) ? 0 : i + 1
     }, 100)
   },
@@ -18,12 +18,14 @@ export default {
   timeout: (state, list, ranking, i, time) => {
     setTimeout(() => {
       clearInterval(state.interval)
-      state.guruguru = ''
+      state.shuffle = ''
       state.ranking.push(ranking[i])
 
       if (i + 1 < ranking.length) {
-        state.interval = this.a.guruguru(state, list)
+        state.interval = this.a.shuffle(state, list)
         this.a.timeout(state, list, ranking, i + 1, time)
+      } else {
+        state.isRunTrial = false
       }
     }, time)
   },
@@ -31,13 +33,12 @@ export default {
   /**
    * 抽選開始
    */
-  createRanking: (trial, members) => {
+  createRanking: (trial, members, callback) => {
     // 集計用のオブジェクト
     const obj = {
       index: null,
       name: null,
-      score: 0,
-      rank: null
+      score: 0
     }
 
     const memList = []
@@ -51,7 +52,7 @@ export default {
     let count = memList.length
     const ranking = []
 
-    while (memList.length > 0) {
+    while (count > 0) {
       // ランダムで選出したメンバーのスコアを加算
       const index = Math.floor(Math.random() * count)
       memList[index].score++
@@ -64,6 +65,6 @@ export default {
       }
     }
 
-    return ranking
+    callback(ranking)
   }
 }
