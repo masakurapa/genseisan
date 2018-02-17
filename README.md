@@ -1,5 +1,6 @@
 # 厳正な抽選さん
 
+- `Math.floor(Math.random() * count)`を使ってランダムに試行対象を選び、試行回数に到達した順にランクを付けるだけのツール
 - [GitHub.io](https://masakurapa.github.io/genseisan/) で公開
 - 現状モバイル向けの作りにはなってない
 
