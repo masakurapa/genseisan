@@ -26,6 +26,12 @@ export default {
         this.a.timeout(state, list, ranking, i + 1, time)
       } else {
         state.isRunTrial = false
+        // 履歴を保持
+        state.history.push({
+          trial: state.trial.value,
+          number: state.number.value,
+          ranking: ranking
+        })
       }
     }, time)
   },

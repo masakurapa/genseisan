@@ -8,12 +8,19 @@
         <trial-form></trial-form>
       </div>
 
-      <div class="button-area"><trial-button></trial-button></div>
+      <div class="button-area">
+        <trial-button></trial-button>
+      </div>
 
       <div class="result-area">
         <h2><img class="sub-title-img" src="./assets/img/result.png"></h2>
         <trial-result></trial-result>
       </div>
+    </div>
+
+    <div class="history-area">
+       <h2><img class="sub-title-img" src="./assets/img/history.png"></h2>
+       <trial-history></trial-history>
     </div>
   </div>
 </template>
@@ -22,12 +29,14 @@
 import TrialButton from './components/TrialButton'
 import TrialForm from './components/TrialForm'
 import TrialResult from './components/TrialResult'
+import TrialHistory from './components/TrialHistory'
 
 export default {
   components: {
     TrialButton,
     TrialForm,
-    TrialResult
+    TrialResult,
+    TrialHistory
   }
 }
 </script>
@@ -45,6 +54,7 @@ body {
 .wrapper {
   width: 1000px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 .form-area {

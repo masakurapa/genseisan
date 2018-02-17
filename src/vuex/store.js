@@ -24,7 +24,8 @@ const state = {
   isRunTrial: false,
   shuffle: '',
   interval: null,
-  ranking: []
+  ranking: [],
+  history: []
 }
 
 const actions = {
@@ -70,6 +71,12 @@ const getters = {
       return []
     }
     return state.ranking
+  },
+  history: (state) => {
+    if (state.history === 'undefined') {
+      return []
+    }
+    return state.history
   }
 }
 
@@ -99,7 +106,7 @@ const mutations = {
       const split = state.members.value.split('\n').filter(v => v.trim())
       state.number.max = split.length
 
-      if (split.length >= 15) {
+      if (split.length > 15) {
         state.members.error = '15行以上はやめて'
       }
     }
