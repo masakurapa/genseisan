@@ -95,6 +95,6 @@ export default {
 
 /* 不要な余白とボーダーが出るので打ち消す */
 .input-group__details {
-  display: none;
+  display: none !important;
 }
 </style>
