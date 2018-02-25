@@ -1,49 +1,50 @@
 <template>
-  <div>
-    <h1><img class="title-img" src="./assets/img/title.png"></h1>
+  <v-app class="t-application">
 
-    <div class="wrapper">
-      <div class="form-area">
-        <h2><img class="sub-title-img" src="./assets/img/data.png"></h2>
-        <trial-form></trial-form>
-      </div>
+    <v-toolbar tabs style="background: #F5FFFA">
+      <v-layout justify-center>
+        <div class="t-main-title-text">厳正な抽選さん</div>
+      </v-layout>
 
-      <div class="button-area">
-        <trial-button></trial-button>
-      </div>
+      <v-tabs slot="extension" centered v-model="tabs">
+        <v-tabs-slider color="blue"></v-tabs-slider>
+        <v-tab class="t-tab">厳正な抽選</v-tab>
+        <v-tab class="t-tab">抽選履歴</v-tab>
+      </v-tabs>
+    </v-toolbar>
 
-      <div class="result-area">
-        <h2><img class="sub-title-img" src="./assets/img/result.png"></h2>
-        <trial-result></trial-result>
-      </div>
-    </div>
-
-    <div class="history-area">
-       <h2><img class="sub-title-img" src="./assets/img/history.png"></h2>
-       <trial-history></trial-history>
-    </div>
-  </div>
+    <v-tabs-items v-model="tabs">
+      <v-tab-item>
+        <trial-contents></trial-contents>
+      </v-tab-item>
+      <v-tab-item>
+        <trial-history></trial-history>
+      </v-tab-item>
+    </v-tabs-items>
+  </v-app>
 </template>
 
 <script>
-import TrialButton from './components/TrialButton'
-import TrialForm from './components/TrialForm'
-import TrialResult from './components/TrialResult'
-import TrialHistory from './components/TrialHistory'
+import Contents from './components/trial/Contents'
+import History from './components/trial/History'
 
 export default {
   components: {
-    TrialButton,
-    TrialForm,
-    TrialResult,
-    TrialHistory
+    'trial-contents': Contents,
+    'trial-history': History
+  },
+
+  data () {
+    return {
+      tabs: null
+    }
   }
 }
 </script>
 
 <style>
-body {
-  background: #F5FFFA;
+.t-application {
+  background: #F5FFFA !important;
   text-align: center;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -51,37 +52,18 @@ body {
   font-family: 'Hannotate SC','Chalkboard SE','ＭＳ 明朝', 'MS Mincho',sans-serif;
 }
 
-.wrapper {
-  width: 1000px;
-  margin: 0 auto;
-  overflow: hidden;
-}
-
-.form-area {
-  width: 400px;
-  float: left;
-  margin: 0px 0px 0px 0px
-}
-
-.button-area {
-  width: 150px;
-  float: left;
-  margin: 80px 0px 0px 0px
-}
-
-.result-area {
-  width: 450px;
-  float: left;
-  margin: 0px 0px 0px 0px
-}
-
-.title-img {
+.t-main-title-img {
   width: auto;
-  height: 60px;
+  height: 50px;
 }
 
-.sub-title-img {
-  width: auto;
-  height: 40px;
+.t-main-title-text {
+  font-size: 45px;
+  font-weight: bold;
+}
+
+.t-tab {
+  width: 50%;
+  max-width: 400px;
 }
 </style>

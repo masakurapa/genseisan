@@ -9,21 +9,17 @@ Vue.use(Vuex)
 
 const state = {
   trial: {
-    value: 100000,
-    error: ''
+    value: 100000
   },
   members: {
-    value: '',
-    error: ''
+    value: ''
   },
   number: {
     value: 1,
-    max: 1,
-    error: ''
+    max: 1
   },
   isRunTrial: false,
-  shuffle: '',
-  interval: null,
+  isProgress: false,
   ranking: [],
   history: []
 }
@@ -50,21 +46,20 @@ const getters = {
   trial: state => state.trial,
   members: state => state.members,
   number: state => state.number,
-  shuffle: state => state.shuffle,
   isStartDisabled: (state) => {
     if (state.isRunTrial) {
       return true
     }
-    if (state.trial.value.length === 0 || state.trial.error !== '') {
-      return true
-    }
-    if (state.members.value.length === 0 || state.members.error !== '') {
+    if (state.members.value.length === 0 || state.number.max > 15) {
       return true
     }
     return false
   },
   isResetDisabled: (state) => {
     return state.isRunTrial
+  },
+  isProgress: (state) => {
+    return state.isProgress
   },
   ranking: (state) => {
     if (state.ranking === 'undefined') {
