@@ -13,9 +13,9 @@
         <v-list subheader>
           <v-list-tile class="t-history-list-title" v-for="(item, j) in hist.ranking" :key="j">
             <v-list-tile-avatar>
-              <img v-if="j == 0" src="/static/img/crown1.png">
-              <img v-else-if="j == 1" src="/static/img/crown2.png">
-              <img v-else-if="j == 2" src="/static/img/crown3.png">
+              <img v-if="j == 0" src="static/img/crown1.png">
+              <img v-else-if="j == 1" src="static/img/crown2.png">
+              <img v-else-if="j == 2" src="static/img/crown3.png">
             </v-list-tile-avatar>
             <v-list-tile-content>
               <v-list-tile-title>{{ item.name }}</v-list-tile-title>
