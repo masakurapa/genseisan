@@ -80,7 +80,7 @@ export default {
     state.members.value = members.trim()
 
     const split = state.members.value.split('\n').filter(v => v.trim())
-    state.number.max = split.length
+    state.number.max = split.length === 0 ? 1 : split.length
   },
 
   /**
