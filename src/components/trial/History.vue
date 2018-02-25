@@ -40,27 +40,27 @@ export default {
 
 <style>
 .t-history-subheader {
-  background-color: #87befd;
+  background-color: #87befd !important;
   color: #FFFFFF !important;
-  font-size: 17px;
-  margin: 0px;
-  height: 30px;
+  font-size: 17px !important;
+  margin: 0px !important;
+  height: 30px !important;
 }
 
 .t-history-info {
-  font-size: 15px;
-  height: 25px;
-  border-bottom: solid 1px #87befd;
-  padding: 0px 0px 0px 10px;
-  text-align: left;
+  font-size: 15px !important;
+  height: 25px !important;
+  border-bottom: solid 1px #87befd !important;
+  padding: 0px 0px 0px 10px !important;
+  text-align: left !important;
 }
 
 .t-history-info div:nth-child(1) {
-  width: 170px;
-  float: left;
+  width: 170px !important;
+  float: left !important;
 }
 
 .t-history-list-title {
-  margin: 0px 0px 0px 10%;
+  margin: 0px 0px 0px 10% !important;
 }
 </style>

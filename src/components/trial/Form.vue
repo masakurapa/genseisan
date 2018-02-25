@@ -79,18 +79,18 @@ export default {
 
 <style>
 .t-form-title-text {
-  font-size: 35px;
-  font-weight: bold;
-  margin: 5px 0px 0px 0px;
+  font-size: 35px !important;
+  font-weight: bold !important;
+  margin: 5px 0px 0px 0px !important;
 }
 
 .t-input-group {
-  margin: 0px 0px 10px 15px;
+  margin: 0px 0px 10px 15px !important;
 }
 
 .t-textarea {
-  padding: 8px;
-  border: 2px solid #668ad8;
+  padding: 8px !important;
+  border: 2px solid #668ad8 !important;
 }
 
 /* 不要な余白とボーダーが出るので打ち消す */

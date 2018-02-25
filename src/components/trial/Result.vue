@@ -33,12 +33,12 @@ export default {
 
 <style>
 .t-result-title-text {
-  font-size: 35px;
-  font-weight: bold;
-  margin: 5px 0px 0px 0px;
+  font-size: 35px !important;
+  font-weight: bold !important;
+  margin: 5px 0px 0px 0px !important;
 }
 
 .t-list-title {
-  margin: 0px 0px 0px 10%;
+  margin: 0px 0px 0px 10% !important;
 }
 </style>

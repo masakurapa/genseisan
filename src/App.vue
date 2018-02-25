@@ -45,25 +45,20 @@ export default {
 <style>
 .t-application {
   background: #F5FFFA !important;
-  text-align: center;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
-  font-family: 'Hannotate SC','Chalkboard SE','ＭＳ 明朝', 'MS Mincho',sans-serif;
-}
-
-.t-main-title-img {
-  width: auto;
-  height: 50px;
+  text-align: center !important;
+  -webkit-font-smoothing: antialiased !important;
+  -moz-osx-font-smoothing: grayscale !important;
+  color: #2c3e50 !important;
+  font-family: 'Hannotate SC','Chalkboard SE','ＭＳ 明朝', 'MS Mincho',sans-serif !important;
 }
 
 .t-main-title-text {
-  font-size: 45px;
-  font-weight: bold;
+  font-size: 45px !important;
+  font-weight: bold !important;
 }
 
 .t-tab {
-  width: 50%;
-  max-width: 400px;
+  width: 50% !important;
+  max-width: 400px !important;
 }
 </style>
