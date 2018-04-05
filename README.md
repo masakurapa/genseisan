@@ -1,4 +1,4 @@
-# 厳正な抽選さん
+# 厳正な抽選ツール
 
 - `Math.floor(Math.random() * count)`を使ってランダムに試行対象を選び、試行回数に到達した順にランクを付けるだけのツール
 - [GitHub.io](https://masakurapa.github.io/genseisan/) で公開

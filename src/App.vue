@@ -3,7 +3,7 @@
 
     <v-toolbar tabs style="background: #F5FFFA">
       <v-layout justify-center>
-        <div class="t-main-title-text">厳正な抽選さん</div>
+        <div class="t-main-title-text">厳正な抽選ツール</div>
       </v-layout>
 
       <v-tabs slot="extension" centered v-model="tabs">
